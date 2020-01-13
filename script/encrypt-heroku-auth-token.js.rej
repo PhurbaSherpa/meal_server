@@ -1,0 +1,20 @@
+diff a/script/encrypt-heroku-auth-token.js b/script/encrypt-heroku-auth-token.js	(rejected hunks)
+@@ -110,10 +110,8 @@ const updateTravisYAML = (app, key) => {
+-  doc.contents.items
+-    .filter(item => item.key in keyComments)
+-    .forEach(item => {
+-      item.comment = keyComments[item.key];
+-      if (item.key === "deploy") {
+-        item.value.items.forEach(item_ => {
+-          item_.commentBefore = keyComments[item_.key];
+-        });
+-      }
+-    });
++  doc.contents.items.filter(item => item.key in keyComments).forEach(item => {
++    item.comment = keyComments[item.key];
++    if (item.key === "deploy") {
++      item.value.items.forEach(item_ => {
++        item_.commentBefore = keyComments[item_.key];
++      });
++    }
++  });

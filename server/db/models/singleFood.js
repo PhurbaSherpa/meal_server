@@ -57,6 +57,9 @@ const SingleFood = db.define("singleFood", {
   },
   vitaminD: {
     type: Sequelize.NUMBER
+  },
+  barcodeId: {
+    type: Sequelize.NUMBER
   }
 });
 
