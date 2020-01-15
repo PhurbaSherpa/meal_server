@@ -13,3 +13,15 @@ router.get("/:barcodeId", async (req, res, next) => {
     next(err);
   }
 });
+
+router.post("/addItem", async (req, res, next) => {
+  try {
+    let item = await SingleFood.findOne({
+      where: { barcodeId: req.body.barcodeId }
+    });
+    if (!item) {
+      item = await SingleFood.create(req.body);
+    }
+    res.send(item);
+  } catch (error) {}
+});

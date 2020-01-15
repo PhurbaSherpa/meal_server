@@ -6,6 +6,9 @@ const SingleFood = db.define("singleFood", {
     type: Sequelize.STRING,
     allowNull: false
   },
+  date: {
+    type: Sequelize.DATE
+  },
   brand: {
     type: Sequelize.STRING,
     allowNull: false
@@ -43,19 +46,7 @@ const SingleFood = db.define("singleFood", {
   sugar: {
     type: Sequelize.NUMBER
   },
-  iron: {
-    type: Sequelize.NUMBER
-  },
   potassium: {
-    type: Sequelize.NUMBER
-  },
-  vitaminA: {
-    type: Sequelize.NUMBER
-  },
-  vitaminC: {
-    type: Sequelize.NUMBER
-  },
-  vitaminD: {
     type: Sequelize.NUMBER
   },
   barcodeId: {
