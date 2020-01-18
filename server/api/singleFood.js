@@ -2,13 +2,13 @@ const router = require("express").Router();
 const { SingleFood } = require("../db/models");
 module.exports = router;
 
-router.get("/:barcodeId", async (req, res, next) => {
+router.get("/:mealType/:date", async (req, res, next) => {
   try {
-    const singleFood = await SingleFood.findOne({
-      where: { barcodeId: req.params.barcodeId }
+    const foods = await SingleFood.findAll({
+      where: { mealType: req.params.mealType, date: req.params.date }
     });
-    if (!singleFood) res.sendStatus(204);
-    else res.json(singleFood);
+    if (!foods) res.sendStatus(204);
+    else res.json(foods);
   } catch (err) {
     next(err);
   }

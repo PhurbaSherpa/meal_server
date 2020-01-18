@@ -6,6 +6,10 @@ const SingleFood = db.define("singleFood", {
     type: Sequelize.STRING,
     allowNull: false
   },
+  mealType: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   date: {
     type: Sequelize.DATE
   },
