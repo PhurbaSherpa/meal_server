@@ -55,6 +55,9 @@ const SingleFood = db.define("singleFood", {
   },
   barcodeId: {
     type: Sequelize.NUMBER
+  },
+  servings: {
+    type: Sequelize.NUMBER
   }
 });
 
