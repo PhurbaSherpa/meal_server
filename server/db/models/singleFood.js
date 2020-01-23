@@ -11,53 +11,53 @@ const SingleFood = db.define("singleFood", {
     allowNull: false
   },
   date: {
-    type: Sequelize.DATE
+    type: Sequelize.STRING
   },
   brand: {
     type: Sequelize.STRING,
     allowNull: false
   },
   calories: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.BIGINT,
     allowNull: false
   },
   carbs: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.BIGINT,
     allowNull: false
   },
   fats: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.BIGINT,
     allowNull: false
   },
   protein: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.BIGINT,
     allowNull: false
   },
   servingSize: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.BIGINT,
     allowNull: false
   },
   cholesterol: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.BIGINT,
     allowNull: false
   },
   sodium: {
-    type: Sequelize.NUMBER
+    type: Sequelize.BIGINT
   },
   fiber: {
-    type: Sequelize.NUMBER
+    type: Sequelize.BIGINT
   },
   sugar: {
-    type: Sequelize.NUMBER
+    type: Sequelize.BIGINT
   },
   potassium: {
-    type: Sequelize.NUMBER
+    type: Sequelize.BIGINT
   },
   barcodeId: {
-    type: Sequelize.NUMBER
+    type: Sequelize.BIGINT
   },
   servings: {
-    type: Sequelize.NUMBER
+    type: Sequelize.BIGINT
   }
 });
 
