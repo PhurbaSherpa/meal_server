@@ -2,18 +2,6 @@ const router = require("express").Router();
 const { SingleFood } = require("../db/models");
 module.exports = router;
 
-// router.get("/:mealType/:date", async (req, res, next) => {
-//   try {
-//     const foods = await SingleFood.findAll({
-//       where: { mealType: req.params.mealType, date: req.params.date }
-//     });
-//     if (!foods) res.sendStatus(204);
-//     else res.json(foods);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
-
 router.get("/:date", async (req, res, next) => {
   try {
     const allfoods = await SingleFood.findAll({
@@ -46,6 +34,25 @@ router.delete("/:barcodeId/:date/:mealType", async (req, res, next) => {
   } catch (error) {
     console.log("delete error", error);
   }
+});
+
+router.put("/:item/", async (req, res, next) => {
+  try {
+    const { item } = req.params.item;
+    const toBeUpdated = await SingleFood.findone({
+      where: {
+        barcodeId: item.barcodeId,
+        date: item.date,
+        mealType: item.mealType
+      }
+    });
+    if (!toBeUpdated) res.sendStatus(204);
+    else {
+      toBeUpdated.servings = item.servings;
+      await toBeUpdated.save();
+      res.json(toBeUpdated);
+    }
+  } catch (error) {}
 });
 
 router.post("/addItem", async (req, res, next) => {
