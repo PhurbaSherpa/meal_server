@@ -36,23 +36,26 @@ router.delete("/:barcodeId/:date/:mealType", async (req, res, next) => {
   }
 });
 
-router.put("/:item/", async (req, res, next) => {
+router.put("/edit", async (req, res, next) => {
   try {
-    const { item } = req.params.item;
-    const toBeUpdated = await SingleFood.findone({
+    const { barcodeId, date, mealType, servings } = req.body;
+    console.log(req.body);
+    const toBeUpdated = await SingleFood.findOne({
       where: {
-        barcodeId: item.barcodeId,
-        date: item.date,
-        mealType: item.mealType
+        barcodeId: barcodeId,
+        date: date,
+        mealType: mealType
       }
     });
     if (!toBeUpdated) res.sendStatus(204);
     else {
-      toBeUpdated.servings = item.servings;
+      toBeUpdated.servings = +servings;
       await toBeUpdated.save();
       res.json(toBeUpdated);
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log("edit error", error);
+  }
 });
 
 router.post("/addItem", async (req, res, next) => {
