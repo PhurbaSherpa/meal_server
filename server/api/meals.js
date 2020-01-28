@@ -32,7 +32,7 @@ router.delete("/:barcodeId/:date/:mealType", async (req, res, next) => {
       res.json(toBeDestroyed);
     }
   } catch (error) {
-    console.log("delete error", error);
+    next(error);
   }
 });
 
@@ -54,18 +54,66 @@ router.put("/edit", async (req, res, next) => {
       res.json(toBeUpdated);
     }
   } catch (error) {
-    console.log("edit error", error);
+    next(error);
   }
 });
 
-router.post("/addItem", async (req, res, next) => {
+router.post("/add", async (req, res, next) => {
   try {
-    let item = await SingleFood.findOne({
-      where: { barcodeId: req.body.barcodeId }
+    const {
+      mealType,
+      barcodeId,
+      date,
+      foodName,
+      calories,
+      carbs,
+      fats,
+      protein,
+      cholesterol,
+      fiber,
+      potassium,
+      sodium,
+      sugar,
+      brand,
+      servingSize,
+      servings
+    } = req.body;
+
+    const isRecordedItem = await SingleFood.findOne({
+      where: {
+        barcodeId: barcodeId,
+        date: date,
+        mealType: mealType
+      }
     });
-    if (!item) {
-      item = await SingleFood.create(req.body);
+    if (isRecordedItem) {
+      isRecordedItem.servings = +servings;
+      await isRecordedItem.save();
+      res.json(isRecordedItem);
+    } else {
+      const newItem = await SingleFood.create({
+        mealType,
+        barcodeId,
+        date,
+        foodName,
+        calories,
+        carbs,
+        fats,
+        protein,
+        cholesterol,
+        fiber,
+        potassium,
+        sodium,
+        sugar,
+        brand,
+        servingSize,
+        servings
+      });
+      if (!newItem) res.sendStatus(404);
+      else res.json(newItem);
     }
-    res.send(item);
-  } catch (error) {}
+  } catch (error) {
+    console.log("route", error);
+    next(error);
+  }
 });
