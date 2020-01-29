@@ -34,7 +34,8 @@ async function seed() {
       protein: 185,
       fats: 40,
       carbs: 225,
-      userId: 1
+      userId: 1,
+      gender: "Male"
     }),
     UserDetails.create({
       age: 21,
@@ -45,7 +46,8 @@ async function seed() {
       protein: 185,
       fats: 40,
       carbs: 325,
-      userId: 2
+      userId: 2,
+      gender: "Female"
     })
   ]);
 

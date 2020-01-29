@@ -14,8 +14,7 @@ const SingleFood = db.define("singleFood", {
     type: Sequelize.STRING
   },
   brand: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   calories: {
     type: Sequelize.BIGINT,
@@ -38,8 +37,7 @@ const SingleFood = db.define("singleFood", {
     allowNull: false
   },
   cholesterol: {
-    type: Sequelize.BIGINT,
-    allowNull: false
+    type: Sequelize.BIGINT
   },
   sodium: {
     type: Sequelize.BIGINT

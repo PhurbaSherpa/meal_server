@@ -25,6 +25,9 @@ const UserDetails = db.define("userDetails", {
   },
   carbs: {
     type: Sequelize.BIGINT
+  },
+  gender: {
+    type: Sequelize.STRING
   }
 });
 
