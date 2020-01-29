@@ -1,13 +1,13 @@
 const User = require("./user");
 const SingleFood = require("./singleFood");
-const Recommended = require("./recommended");
+const UserDetails = require("./userDetails");
 /**
  * If we had any associations to make, this would be a great place to put them!
  * ex. if we had another model called BlogPost, we might say:
  *
  *    BlogPost.belongsTo(User)
  */
-Recommended.belongsTo(User);
+UserDetails.belongsTo(User);
 User.hasMany(SingleFood);
 
 /**
@@ -19,5 +19,5 @@ User.hasMany(SingleFood);
 module.exports = {
   User,
   SingleFood,
-  Recommended
+  UserDetails
 };

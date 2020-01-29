@@ -1,7 +1,19 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-const Recommended = db.define("recommended", {
+const UserDetails = db.define("userDetails", {
+  age: {
+    type: Sequelize.BIGINT
+  },
+  inches: {
+    type: Sequelize.BIGINT
+  },
+  feet: {
+    type: Sequelize.BIGINT
+  },
+  weight: {
+    type: Sequelize.BIGINT
+  },
   calories: {
     type: Sequelize.BIGINT
   },
@@ -16,4 +28,4 @@ const Recommended = db.define("recommended", {
   }
 });
 
-module.exports = Recommended;
+module.exports = UserDetails;

@@ -3,6 +3,7 @@
 const db = require("../server/db");
 const { User } = require("../server/db/models");
 const { SingleFood } = require("../server/db/models");
+const { UserDetails } = require("../server/db/models");
 
 async function seed() {
   await db.sync({ force: true });
@@ -22,6 +23,32 @@ async function seed() {
       lastName: "Moon"
     })
   ]);
+
+  const userDetails = await Promise.all([
+    UserDetails.create({
+      age: 22,
+      inches: 7,
+      feet: 5,
+      weight: 185,
+      calories: 2000,
+      protein: 185,
+      fats: 40,
+      carbs: 225,
+      userId: 1
+    }),
+    UserDetails.create({
+      age: 21,
+      inches: 9,
+      feet: 5,
+      weight: 165,
+      calories: 2400,
+      protein: 185,
+      fats: 40,
+      carbs: 325,
+      userId: 2
+    })
+  ]);
+
   const foodentries = await Promise.all([
     SingleFood.create({
       foodName: "Organic Egg",
@@ -178,6 +205,7 @@ async function seed() {
   ]);
 
   console.log(`seeded ${users.length} users`);
+  console.log(`seeded ${userDetails.length} user details`);
   console.log(`seeded ${foodentries.length} entries`);
   console.log(`seeded successfully`);
 }
