@@ -9,8 +9,18 @@ async function seed() {
   console.log("db synced!");
 
   const users = await Promise.all([
-    User.create({ email: "cody@email.com", password: "123" }),
-    User.create({ email: "murphy@email.com", password: "123" })
+    User.create({
+      email: "cody@email.com",
+      password: "123",
+      firstName: "Cody",
+      lastName: "Sun"
+    }),
+    User.create({
+      email: "murphy@email.com",
+      password: "123",
+      firstName: "Murphy",
+      lastName: "Moon"
+    })
   ]);
   const foodentries = await Promise.all([
     SingleFood.create({
@@ -29,7 +39,8 @@ async function seed() {
       sugar: 0,
       potassium: 2,
       barcodeId: 4567891234567,
-      servings: 2
+      servings: 2,
+      userId: 1
     }),
     SingleFood.create({
       foodName: "Organic Bread",
@@ -47,7 +58,8 @@ async function seed() {
       sugar: 0,
       potassium: 2,
       barcodeId: 3456789123456,
-      servings: 2
+      servings: 2,
+      userId: 1
     }),
     SingleFood.create({
       foodName: "Steak",
@@ -65,7 +77,8 @@ async function seed() {
       sugar: 0,
       potassium: 2,
       barcodeId: 2345678912345,
-      servings: 1
+      servings: 1,
+      userId: 1
     }),
     SingleFood.create({
       foodName: "Broccoli",
@@ -83,12 +96,13 @@ async function seed() {
       sugar: 0,
       potassium: 2,
       barcodeId: 1234567891234,
-      servings: 1
+      servings: 1,
+      userId: 1
     }),
     SingleFood.create({
       foodName: "Organic Egg",
       mealType: "Breakfast",
-      date: "5,0,24",
+      date: "2,0,28",
       brand: "Costco Organic Eggs",
       calories: 70,
       carbs: 0,
@@ -101,12 +115,13 @@ async function seed() {
       sugar: 0,
       potassium: 2,
       barcodeId: 4567891234567,
-      servings: 2
+      servings: 2,
+      userId: 1
     }),
     SingleFood.create({
       foodName: "Organic Bread",
       mealType: "Breakfast",
-      date: "5,0,24",
+      date: "2,0,28",
       brand: "Costco Organic Bread",
       calories: 110,
       carbs: 20,
@@ -119,12 +134,13 @@ async function seed() {
       sugar: 0,
       potassium: 2,
       barcodeId: 3456789123456,
-      servings: 2
+      servings: 2,
+      userId: 1
     }),
     SingleFood.create({
       foodName: "Steak",
       mealType: "Lunch",
-      date: "5,0,24",
+      date: "2,0,28",
       brand: "Costco Steak",
       calories: 320,
       carbs: 12,
@@ -137,12 +153,13 @@ async function seed() {
       sugar: 0,
       potassium: 2,
       barcodeId: 2345678912345,
-      servings: 1
+      servings: 1,
+      userId: 1
     }),
     SingleFood.create({
       foodName: "Broccoli",
       mealType: "Lunch",
-      date: "5,0,24",
+      date: "2,0,28",
       brand: "Costco Broccoli",
       calories: 40,
       carbs: 8,
@@ -155,7 +172,8 @@ async function seed() {
       sugar: 0,
       potassium: 2,
       barcodeId: 1234567891234,
-      servings: 1
+      servings: 1,
+      userId: 1
     })
   ]);
 
