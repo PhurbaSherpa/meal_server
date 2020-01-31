@@ -51,8 +51,8 @@ const SingleFood = db.define("singleFood", {
   potassium: {
     type: Sequelize.BIGINT
   },
-  barcodeId: {
-    type: Sequelize.BIGINT
+  foodId: {
+    type: Sequelize.STRING
   },
   servings: {
     type: Sequelize.BIGINT

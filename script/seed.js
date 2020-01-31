@@ -67,7 +67,7 @@ async function seed() {
       fiber: 0,
       sugar: 0,
       potassium: 2,
-      barcodeId: 4567891234567,
+      foodId: "456789123456",
       servings: 2,
       userId: 1
     }),
@@ -86,7 +86,7 @@ async function seed() {
       fiber: 0,
       sugar: 0,
       potassium: 2,
-      barcodeId: 3456789123456,
+      foodId: "345678912345",
       servings: 2,
       userId: 1
     }),
@@ -105,7 +105,7 @@ async function seed() {
       fiber: 0,
       sugar: 0,
       potassium: 2,
-      barcodeId: 2345678912345,
+      foodId: "234567891234",
       servings: 1,
       userId: 1
     }),
@@ -124,7 +124,7 @@ async function seed() {
       fiber: 2,
       sugar: 0,
       potassium: 2,
-      barcodeId: 1234567891234,
+      foodId: "123456789123",
       servings: 1,
       userId: 1
     }),
@@ -143,7 +143,7 @@ async function seed() {
       fiber: 0,
       sugar: 0,
       potassium: 2,
-      barcodeId: 4567891234567,
+      foodId: "456789123456",
       servings: 2,
       userId: 1
     }),
@@ -162,7 +162,7 @@ async function seed() {
       fiber: 0,
       sugar: 0,
       potassium: 2,
-      barcodeId: 3456789123456,
+      foodId: "345678912345",
       servings: 2,
       userId: 1
     }),
@@ -181,7 +181,7 @@ async function seed() {
       fiber: 0,
       sugar: 0,
       potassium: 2,
-      barcodeId: 2345678912345,
+      foodId: "234567891234",
       servings: 1,
       userId: 1
     }),
@@ -200,7 +200,7 @@ async function seed() {
       fiber: 2,
       sugar: 0,
       potassium: 2,
-      barcodeId: 1234567891234,
+      foodId: "123456789123",
       servings: 1,
       userId: 1
     })

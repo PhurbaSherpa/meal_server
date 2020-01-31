@@ -16,12 +16,12 @@ router.get("/:date", async (req, res, next) => {
   }
 });
 
-router.delete("/:barcodeId/:date/:mealType", async (req, res, next) => {
+router.delete("/:foodId/:date/:mealType", async (req, res, next) => {
   try {
     if (req.user) {
       const toBeDestroyed = await SingleFood.findOne({
         where: {
-          barcodeId: req.params.barcodeId,
+          foodId: req.params.foodId,
           date: req.params.date,
           mealType: req.params.mealType,
           userId: req.user.id
@@ -44,11 +44,11 @@ router.delete("/:barcodeId/:date/:mealType", async (req, res, next) => {
 router.put("/edit", async (req, res, next) => {
   try {
     if (req.user) {
-      const { barcodeId, date, mealType, servings } = req.body;
+      const { foodId, date, mealType, servings } = req.body;
       console.log(req.body);
       const toBeUpdated = await SingleFood.findOne({
         where: {
-          barcodeId: barcodeId,
+          foodId: foodId,
           date: date,
           mealType: mealType,
           userId: req.user.id
@@ -71,7 +71,7 @@ router.post("/add", async (req, res, next) => {
     if (req.user) {
       const {
         mealType,
-        barcodeId,
+        foodId,
         date,
         foodName,
         calories,
@@ -87,10 +87,11 @@ router.post("/add", async (req, res, next) => {
         servingSize,
         servings
       } = req.body;
+      console.log("body", req.body);
 
       const isRecordedItem = await SingleFood.findOne({
         where: {
-          barcodeId: barcodeId,
+          foodId: foodId,
           date: date,
           mealType: mealType,
           userId: req.user.id
@@ -103,7 +104,7 @@ router.post("/add", async (req, res, next) => {
       } else {
         const newItem = await SingleFood.create({
           mealType,
-          barcodeId,
+          foodId,
           date,
           foodName,
           calories,
