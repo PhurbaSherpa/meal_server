@@ -90,7 +90,7 @@ router.put("/", async (req, res, next) => {
       });
       if (!userDetails) res.sendStatus(204);
       else {
-        let updated = userDetails.update(item);
+        let updated = await userDetails.update(item);
         if (!updated) res.sendStatus(204);
         else res.json(updated);
       }
