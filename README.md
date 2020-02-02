@@ -2,11 +2,10 @@
 
 * handles api request made by client
 * routes are protected, only signed in user can access
-* incorporates use of NutrionX api for nutirient specfic information of a food
 
 ## Getting started
 
-* no need to do anything the backend is hosted up on heroku at https://calstracker.herokuapp.com/
+* no need to do anything the backend is hosted up on heroku at <a href="https://calstracker.herokuapp.com">CalsTracker Server</a>
 
 ## Developing
 
@@ -27,7 +26,3 @@ git clone https://github.com/PhurbaSherpa/meal_server
 cd meal-server
 npm install
 ```
-
-## API reference
-
-* NutritionX API : https://developer.nutritionix.com/docs/v2
